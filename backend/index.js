@@ -32,7 +32,7 @@ app.get('/todo', async (req, res) => {
     const data = await TodoModel.find();
     // console.log(data);
     res.json({
-        data
+        todos : data
     })
 })
 

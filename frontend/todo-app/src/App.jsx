@@ -6,10 +6,12 @@ import RenderTodos from './Components/RenderTodos';
 import BasicUI from './Components/BasicUI/BasicUI';
 
 function App() {
-
+  
   return (
     <div>
       <BasicUI />
+
+
     </div>
   )
 }

@@ -10,7 +10,7 @@ body{
 }
 .container{
     width: 1000px;
-    height: 600px;
+    height: min-content;
     border: 1px solid grey;
     
 }
@@ -48,7 +48,10 @@ body{
     cursor: pointer;
 }
 .todo-div{
-    width: 80%;
-    height: 60%;
+    width: 100%;
+    height: min-content;
     border: 1px solid greenyellow;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
