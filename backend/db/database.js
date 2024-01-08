@@ -6,7 +6,7 @@ const todoSchema = new mongoose.Schema({
     title : String,
     description : String,
     isCompleted : Boolean
-})
+});
 
 const TodoModel = mongoose.model("TodoModel", todoSchema);
 

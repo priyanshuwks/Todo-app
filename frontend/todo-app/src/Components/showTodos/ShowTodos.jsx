@@ -1,9 +1,12 @@
-import RenderTodos from "../RenderTodos";
+
+import RenderOneTodo from "../renderOneTodo/RenderOneTodo";
 import "./ShowTodos.css";
 
 
 function ShowTodos({data}){
     // const [buttonText, setButtonText] = useState("")
+    let buttonText = "";
+
     return (
         <div>
             {/* {console.log(props.todos.length)} */}
@@ -13,10 +16,7 @@ function ShowTodos({data}){
             {data.map(function(oneTodo, index){
                 return (
                     <div key={index} className="one-todo">
-                        <h3>{oneTodo.title}</h3>
-                        <p>{oneTodo.description}</p>
-                        {/* <button>Mark As Done</button> */}
-                        {oneTodo.isCompleted ? <button>Done!</button> : <button>Mark As Done</button>}
+                        <RenderOneTodo oneTodo={oneTodo}/>
                     </div>
                 )
             })}

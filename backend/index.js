@@ -28,12 +28,47 @@ app.post('/todo',async (req, res) => {
 
 })
 
+
+
+
 app.get('/todo', async (req, res) => {
     const data = await TodoModel.find();
     // console.log(data);
     res.json({
         todos : data
     })
+})
+
+app.get('/todo/:_id', async (req, res) => {
+    const todoId = req.params._id;
+
+    const resp = await TodoModel.findOne({_id : todoId});
+    if(resp){
+        res.status(200).json({
+            oneTodo : resp
+        })
+    }else{
+        res.status(204).json({
+            message : `todo with the request id not found!`
+        })
+    }
+})
+
+app.put('/todo', async (req, res) => {
+
+    const updatedTodo = await TodoModel.updateOne({_id : req.body._id},
+         {$set : {
+            isCompleted : req.body.isCompleted
+         }});
+    if(updatedTodo.acknowledged){
+        res.status(202).json({
+            message : `One todo updated`
+        })
+    }else{
+        res.status(304).json({
+            message : `Update Unsuccessful`
+        })
+    }
 })
 
 
